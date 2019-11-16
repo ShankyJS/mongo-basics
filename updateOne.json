@@ -1,0 +1,27 @@
+
+// Update a new poster on the db.movieDetails
+
+
+db.movieDetails.updateOne({
+  title: "The Martian"
+}, {
+  $set: {
+    poster: "https://m.media-amazon.com/images/M/MV5BMTc2MTQ3MDA1Nl5BMl5BanBnXkFtZTgwODA3OTI4NjE@._V1_SY1000_CR0,0,675,1000_AL_.jpg"
+  }
+});
+
+
+
+//Creating an Object
+
+db.movieDetails.updateOne({
+  title: "The Martian"
+}, { 
+  $set: {
+    "awards": {
+      "wins": 8,
+      "nominations": 14,
+      "text": "Nominated for 3 Golden Globes. Another 8 wins & 14 Nominations."
+    }
+  }
+});
