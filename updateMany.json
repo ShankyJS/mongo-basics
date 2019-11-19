@@ -1,0 +1,19 @@
+//Here we can delete a bunch of fields with the rated field equals to null
+
+db.movieDetails.updateMany({
+  rated: null
+}, {
+  $unset: {
+    rated: ""
+  }
+})
+
+
+db.movieDetails.updateOne({
+  "imdb.id": detail.imdb.id
+}, {
+  $set: detail
+}, {
+  upsert: true;
+});
+

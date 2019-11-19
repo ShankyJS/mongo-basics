@@ -25,3 +25,41 @@ db.movieDetails.updateOne({
     }
   }
 });
+
+// Updating an existing Document (this can increment the value of a field by the quantity that
+//we specify.)
+
+db.movieDetails.updateOne({
+  title: "The Martian"
+}, {
+  $inc: {
+    "tomato.review": 3,
+    "tomato.userReviews": 25
+  }
+})
+
+
+db.movieDetails.updateOne({
+  title: "The Martian"
+}, {
+  $unset: {
+    "tomato.review": 0
+  }
+})
+
+
+
+//
+
+db.movieDetails.updateOne({
+  title: "The Martian"
+}, {
+  $push: {
+    reviews: {
+      rating: 4.5, 
+      date: ISODate("2016-01-12T09:00:00Z"),
+      reviewer: "Spencer H.",
+      text: reviewText1
+    }
+  }
+})
